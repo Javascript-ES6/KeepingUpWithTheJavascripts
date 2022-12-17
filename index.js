@@ -210,3 +210,42 @@ console.log(yourArray);
 // let- data you are not sure if it will not change.
 // Avoid var
 
+
+//if statement
+//tells the code if this thing is true, run more code
+//if(expression){statement(s) to be executed if expression evaluates to truthy or falsey};
+
+const shouldSayHello = true;
+if(shouldSayHello === true){
+    console.log("Hello there");
+}
+
+let numberCinco = 5;
+console.log(typeof numberCinco);
+
+const stringFive ="5";
+console.log(typeof stringFive);
+
+console.log(numberCinco == stringFive);
+console.log(numberCinco === stringFive);
+
+const myFirstNumber=123;
+const mySecondNumber = 120;
+
+if (myFirstNumber === mySecondNumber){
+    console.log("Hi there");
+}
+
+const bankAccountBalance=1200;
+const costOfItem = 120;
+const tax = 0.50;
+
+if (bankAccountBalance >= costOfItem + tax){
+    console.log("You can purchase this item!");
+}
+
+console.log(bankAccountBalance !== costOfItem);
+
+if (bankAccountBalance !== costOfItem + tax){
+    console.log("I am running!");
+}
