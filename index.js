@@ -1,6 +1,7 @@
 //Types
 
-//Number
+//Numbergit 
+
 
 console.log(typeof ["10","e"]);//object
 console.log(10+6);
@@ -9,7 +10,7 @@ console.log(Math.PI);
 console.log("10"+ 2345); //"102345"
 console.log(parseInt("10")+213); //223 parseInt(converts string to integer)
 console.log(isNaN(1)); 
-console.log(+"10");// urinary plus operator converts string to number
+console.log(+"10");// unitary plus operator converts string to number
 
 //string
 //sequences of Unicode characters
@@ -126,3 +127,32 @@ var coconutDonut = new Donut("coconut",false,8,true);
 console.log(coconutDonut);
 var vanillaDonut = new Donut ("vanilla",true,10,false);
 console.log(vanillaDonut.sweetness);
+
+//Arrays
+//Collection of data
+
+var myArray = [1,23,33,"kibi",true];
+console.log(myArray[4]);
+console.log(myArray.length);
+
+var myNamesArray= new Array();
+myNamesArray[0]= "Kolo";
+myNamesArray[1]= "Caroline";
+myNamesArray[100]= "Obadia";
+console.log(myNamesArray.length)
+
+
+var myName =["Faith","Abel"];
+console.log(myName.unshift("kibi"));
+console.log(myName);
+
+// push(); //adds to the last of the array
+// Pop();//removes the last item in array
+// shift();//removes the first item
+// unshift();//adds to the first
+// sort();//sorts aacording to your preference
+// reverse();//reverses the sort order
+// concat(); //Combines two arrays
+
+console.log(myNamesArray.concat(myName,myArray));
+
