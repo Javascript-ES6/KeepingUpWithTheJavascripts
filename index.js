@@ -156,3 +156,57 @@ console.log(myName);
 
 console.log(myNamesArray.concat(myName,myArray));
 
+//
+//Variable
+var myName = "Kibi";
+var myLastName ="Kosgei";
+var myFavNum = 8;
+var miObject = {name:"Kibi",age:24};
+var miArray = [1,2,3,3,3];
+
+console.log(typeof miObject);
+console.log(myLastName);
+
+function sayHi(){
+    console.log("Hi"+ " "+ myName)
+}
+sayHi()
+
+//Variable is case sensistive
+
+var yourName = "Master";//global scope
+
+function sayName(){
+    var youName = "Senorita Perez"; //locally scoped not a good practice to redeclare variable with the same name.
+    console.log(youName);
+}
+sayName();
+console.log(yourName);
+
+//not goood practice to use numbers in variables
+
+var myName = "Daniel";
+var anotherName =myName;
+var yetAnotherName= anotherName;
+
+console.log(yetAnotherName);
+
+
+function sayHello(){
+    var shouldSayHello = true;
+    if (shouldSayHello === true){
+        var myName = "Boen";
+        console.log("Hello" +" "+myName);
+    }
+}
+sayHello();
+
+const yourArray = [1,23,4,5,6,7];
+yourArray.push(4);
+console.log(yourArray);
+
+
+// const- if data is not gonna change
+// let- data you are not sure if it will not change.
+// Avoid var
+
