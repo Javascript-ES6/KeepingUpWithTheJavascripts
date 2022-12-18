@@ -239,6 +239,8 @@ if (myFirstNumber === mySecondNumber){
 const bankAccountBalance=1200;
 const costOfItem = 120;
 const tax = 0.50;
+const canSpendMoney = true;
+const hasReachedCreditLimit = true;
 
 if (bankAccountBalance >= costOfItem + tax){
     console.log("You can purchase this item!");
@@ -246,6 +248,22 @@ if (bankAccountBalance >= costOfItem + tax){
 
 console.log(bankAccountBalance !== costOfItem);
 
-if (bankAccountBalance !== costOfItem + tax){
-    console.log("I am running!");
+//nested if -statement inside an if statement
+
+
+if (bankAccountBalance >= costOfItem + tax){
+    console.log("Balance ok!Cheking tax");
+    if(tax>=0.50){
+        console.log("Tax ammount is too high");
+    }
+}
+
+// and operator && all sides should evaluate to true
+if(bankAccountBalance >= costOfItem && canSpendMoney && costOfItem < 150){
+    console.log("You can purchase this item!");
+}
+// || or operator-either side can evaluate true
+
+if  (hasReachedCreditLimit){
+    console.log("Can purchase!")
 }
