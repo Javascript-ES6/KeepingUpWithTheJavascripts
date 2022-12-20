@@ -210,3 +210,60 @@ console.log(yourArray);
 // let- data you are not sure if it will not change.
 // Avoid var
 
+
+//if statement
+//tells the code if this thing is true, run more code
+//if(expression){statement(s) to be executed if expression evaluates to truthy or falsey};
+
+const shouldSayHello = true;
+if(shouldSayHello === true){
+    console.log("Hello there");
+}
+
+let numberCinco = 5;
+console.log(typeof numberCinco);
+
+const stringFive ="5";
+console.log(typeof stringFive);
+
+console.log(numberCinco == stringFive);
+console.log(numberCinco === stringFive);
+
+const myFirstNumber=123;
+const mySecondNumber = 120;
+
+if (myFirstNumber === mySecondNumber){
+    console.log("Hi there");
+}
+
+const bankAccountBalance=1200;
+const costOfItem = 120;
+const tax = 0.50;
+const canSpendMoney = true;
+const hasReachedCreditLimit = true;
+
+if (bankAccountBalance >= costOfItem + tax){
+    console.log("You can purchase this item!");
+}
+
+console.log(bankAccountBalance !== costOfItem);
+
+//nested if -statement inside an if statement
+
+
+if (bankAccountBalance >= costOfItem + tax){
+    console.log("Balance ok!Cheking tax");
+    if(tax>=0.50){
+        console.log("Tax ammount is too high");
+    }
+}
+
+// and operator && all sides should evaluate to true
+if(bankAccountBalance >= costOfItem && canSpendMoney && costOfItem < 150){
+    console.log("You can purchase this item!");
+}
+// || or operator-either side can evaluate true
+
+if  (hasReachedCreditLimit){
+    console.log("Can purchase!")
+}
