@@ -240,7 +240,7 @@ const bankAccountBalance=1200;
 const costOfItem = 120;
 const tax = 0.50;
 const canSpendMoney = true;
-const hasReachedCreditLimit = true;
+const hasReachedCreditLimit = false;
 
 if (bankAccountBalance >= costOfItem + tax){
     console.log("You can purchase this item!");
@@ -267,3 +267,91 @@ if(bankAccountBalance >= costOfItem && canSpendMoney && costOfItem < 150){
 if  (hasReachedCreditLimit){
     console.log("Can purchase!")
 }
+
+//functions
+/* A function is a javascript procedure- a set of statements that perform a task or calculates a value.[...]"*/
+
+
+
+function sayHi() {
+    console.log("Hi");
+}
+function sayBye() {
+    console.log("Bye");
+}
+sayHi(); //invoke the block of code
+sayHi();
+sayBye();
+
+function sayVipi(firstName,secondName){
+    console.log("Vipi"+" "+ firstName +" "+secondName +"?");
+}
+ sayVipi("Kibi");
+ sayVipi("Grace","Castillo");
+
+function numberDoubler(num){
+    const doubledValue = num*2;
+    return doubledValue;
+}
+ const numTwoDoubled = numberDoubler(2);
+ console.log(numTwoDoubled);
+
+ //hoisting -accessing a var directly without passing in 
+
+ const myInfo = {name:"Chris",age:30};
+
+ function changeAgeTo100(myObj){
+    myObj.age = 100;
+ }
+
+console.log(myInfo);
+changeAgeTo100(myInfo);
+console.log(myInfo);
+
+const myNumbers = [1,2,3,4,5];
+
+function addToArray(myArr){
+    myArr.push(6);
+}
+console.log(myNumbers);
+
+addToArray(myNumbers);
+
+console.log(myNumbers);
+
+//nested Functions
+
+function squareAndMultiply(num1,num2){
+    function squarer(x){
+        return x*x;
+    }
+    function multiplyBy10(y){
+        return y*10;
+    }
+    return squarer(num1) * multiplyBy10(num2);
+}
+console.log(squareAndMultiply(4,4));
+
+const first = squareAndMultiply(4,4);
+const second = squareAndMultiply(10,2);
+const third = squareAndMultiply(4,200);
+
+console.log(second);
+
+
+function personFormatter(firstName,lastName,age){
+    function formatNames(arg1,arg2){
+        return arg1 + " " + arg2;
+    }
+    function dataFormatter(fullName,num){
+        const formattedData = {
+            name:fullName,
+            age:num
+        }
+        return formattedData;
+    }
+    const formattedName = formatNames(firstName,lastName);
+    return dataFormatter(formattedName,age);
+
+}
+console.log(personFormatter("Kibi","Kosgei",20));
