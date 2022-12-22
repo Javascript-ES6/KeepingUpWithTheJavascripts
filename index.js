@@ -355,3 +355,125 @@ function personFormatter(firstName,lastName,age){
 
 }
 console.log(personFormatter("Kibi","Kosgei",20));
+
+//Advanced functions 
+
+var sayHi = () => {
+    console.log("Hi,am using an arrow function");
+}
+sayHi();
+
+
+const multiplier = (num1,num2) => {
+    return num1*num2;
+}
+
+console.log(multiplier(5,100));
+
+const users=[{name:"Kibi",age:60},
+{name:"Buss",age :25},
+{name:"Kibenon",age:60}];
+
+const userNameList = users.map(function(user){
+    return user.name;
+});
+
+console.log(userNameList);
+const userNameList1 = users.map((user)=>{ //arrow function
+    return user.name;
+});
+console.log(userNameList);
+
+//skipp {}  
+
+const multiplier1 = (x,y)  => x*y;
+
+console.log(multiplier(2,3));
+
+//dropping parenthisis if it takes one arguement
+const squarer = num => num*num;
+console.log(squarer(10));
+
+
+const numbers = [1,23,4,5,6,7,8,9,10,60]
+
+const filteredNumbers = numbers.filter((num)=> num % 2 === 0
+);
+console.log(filteredNumbers);
+
+const doubledNumber =(num) => {
+    const numberContainer =[];
+    num.forEach((n) => {
+        const doubled = n*2;
+        numberContainer.push(doubled);
+    })
+    return numberContainer;
+} 
+console.log(doubledNumber(numbers));
+
+
+const bankAccount = {
+    canSpendMoney:true,
+    hasCreditCard: true,
+}
+function purchaseItem(price,acct = bankAccount){ //passing account as default
+    if (acct.canSpendMoney){
+        acct.balance -= price;
+        if (acct.balance <=0){
+            acct.canSpendMoney = false;
+        }
+        return true;
+    }else{
+        return false;
+    }
+}
+console.log(purchaseItem(100));
+console.log(purchaseItem(1));
+//
+function logAllArguments(x,y,z){ 
+    const args = Array.prototype.slice.call(arguments,logAllArguments.length)
+    console.log(args); // creates an object
+}
+console.log(logAllArguments("Hi","Hello","Vipi","Jambo","Hola","Chamgei"));
+
+//
+function logAllArguments(x,...nums){ 
+
+    console.log(nums.sort()); // creates an object
+}
+console.log(logAllArguments("Hi","Hello","Vipi","Jambo","Hola","Chamgei"));
+
+//
+function logAllArguments(multiplier,...nums){ 
+
+   return nums.map((n) => multiplier*n); // creates an object
+}
+console.log(logAllArguments(100,2,3,4,5,6,7,8,9));
+
+function Dog(years,breed){
+    const that = this;
+    that.age=years;
+    that.type = breed;
+    setInterval(function(){
+        that.age += 1;
+    },1000)
+}
+const spike = new Dog(3,"Golden Retriever");
+const fido = new Dog(5,"Rotweiler")
+
+
+function testFunction(){
+    'use strict'
+    console.log(this);
+}
+testFunction();
+
+
+function Dog(years,breed){
+    this.age=years;
+    this.type = breed;
+    setInterval(() =>{
+        this.age += 1;
+console.log(this);
+    },5000)
+}
