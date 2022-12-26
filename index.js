@@ -551,3 +551,94 @@ function setVolume(n){
 numChecker(100);
 
 
+//loops
+//quick and easy way to do something repeatedly
+/* many types of looop but all do basically the same thing:
+repeat something(i.e an action) a set number of times (even be 0).
+*/
+//while loop
+
+/*
+while (condition){
+    statement 
+}
+*/
+
+let numberOfLoops = 0;
+while(numberOfLoops<10){
+    console.log("I am looping!");
+    console.log(numberOfLoops);
+    numberOfLoops +=1;
+}
+
+let num1=0;
+let num2=0;
+while(num1<100){
+    num1+=5;
+    num2 += num1;
+
+}
+function loopDeLoop(){
+    console.log("I am looping!!!");
+}
+
+const names = ["Chris","Bob","Joe","Crystal","Amy","Billy","Ashley"];
+
+function nameLooper(arr){
+    let index = 0;
+    
+    while(index<arr.length){
+        if (arr[index] === "Amy"){
+            console.log(arr[index]);
+            break;
+        }
+        index +=1;
+}
+}
+nameLooper(names);
+
+//do...while statement
+/*
+do{
+    statement
+}while(condition)
+*/
+
+// let shouldRunOnlyOnce = true;
+// let index=0;
+
+
+// // do{
+//     console.log("Looping");
+//     index=+1;
+//     if(index === 10){
+//         shouldRunOnlyOnce= false;
+//     }
+// }while(shouldRunOnlyOnce);
+
+
+
+// let condition;
+// do{
+//     const userInput = prompt("Enter q to exit");
+//     if(userInput === 'q'){
+//         condition = false;
+//     }else{
+//         condition = true;
+//     }
+// } while (condition);
+
+let totalMoney = 1000;
+
+do{
+    checkIfCanPurchase();
+}while(totalMoney>500);
+
+function checkIfCanPurchase(){
+    if(totalMoney > 500){
+        console.log("Can Purchase :)");
+    }
+        else{
+            console.log("Cannnot purchase :()");
+        }
+}
