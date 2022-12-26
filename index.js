@@ -728,9 +728,66 @@ innerLoop:
 // }
 
 
-for(let i = 0;i<10;i+=1){
-    setTimeout(()=>{
-console.log(i);
-    },i*500)
+// for(let i = 0;i<10;i+=1){
+//     setTimeout(()=>{
+// console.log(i);
+//     },i*1000)
     
+// }
+
+
+//for... in loop 
+/*
+Loop through an object's properties in arbitrary order
+used for looping over object properties
+*/
+
+const watumiaji ={1:"Sally",2:"Kibi",3:"Faith",4:"Mutua"};
+console.log(watumiaji[1]);
+
+for (let prop in users){
+    let watumiajiWapya =console.log(watumiaji[prop]);
+    watumiajiWapya ="Redacted";
+    console.log(watumiajiWapya);
+}
+
+const drinks =["Coffee","Tea","Coke","Pepsi"];
+for(let d in drinks){
+    console.log(drinks[d]);
+}
+
+drinks.forEach(function(d){
+    console.log(d);
+});
+
+//For ...of loop
+/*
+New loop in ES6 used to loop over iterable objects(arrays,strings,maps,sets,etc)
+For looping for data- like values in an array
+*/
+
+for(const d of drinks){
+    if(d==="tea"){
+        continue;
+    }
+    console.log(d);
+}
+
+const myString ="Kibiwot";
+for(const character of myString){
+    console.log(character);
+}
+
+const originalArray = [10,15,20,25,30];
+
+for(let num of originalArray){
+    num +=10;
+    console.log(num);
+}
+
+
+const originalArrays = ["Kibi","kibi","Mariam","Wendy","Winnie","Winnie"];
+const uniqueNameSet = new Set(originalArrays);
+for (const n of uniqueNameSet){
+    console.log(n);
 }
