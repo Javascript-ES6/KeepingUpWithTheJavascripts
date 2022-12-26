@@ -628,17 +628,109 @@ do{
 //     }
 // } while (condition);
 
-let totalMoney = 1000;
+// let totalMoney = 1000;
 
-do{
-    checkIfCanPurchase();
-}while(totalMoney>500);
+// do{
+//     checkIfCanPurchase();
+// }while(totalMoney>500);
 
-function checkIfCanPurchase(){
-    if(totalMoney > 500){
-        console.log("Can Purchase :)");
+// function checkIfCanPurchase(){
+//     if(totalMoney > 500){
+//         console.log("Can Purchase :)");
+//     }
+//         else{
+//             console.log("Cannnot purchase :()");
+//         }
+// }
+
+//For loops
+//Repeat until a specified conditions evaluates to false
+
+/*
+for(initial expression;condition;increment expression){
+    statement
+}
+*/
+ 
+const icecreams = ["Vanilla","chocolate","rockyroads","strawberry"]
+
+function iceCreamLooper(arr,type){
+
+for(var i=0;i<arr.length;i+=1){
+    if (arr[i] === type){
+        console.log(arr[i]+ " "+ "is at position:"+i);
     }
-        else{
-            console.log("Cannnot purchase :()");
+}
+}
+iceCreamLooper(icecreams,"Vanilla");
+
+// for (let i=1;i<=100;i++){
+
+//     if (i%15 === 0){
+//         console.log("Fizzbuzz");
+//     }
+//     else if(i%3 === 0){
+//         console.log("Fizz");
+//     }else if(i%5 ===0){
+
+//         console.log("Buzz");
+//     }else{
+//         console.log(i);
+//     }
+// }
+
+for (let i=1;i<=100;i++){
+
+    if (i%15 === 0){
+        continue; //just contines opp of break
+    }
+    else if(i%3 === 0){
+        console.log("Fizz");
+    }else if(i%5 ===0){
+
+        console.log("Buzz");
+    }else{
+        console.log(i);
+    }
+}
+
+let x =0;
+while(x<10){
+    x+=1;
+
+    if (x === 5){
+        console.log("I am being skipped :(");
+        continue;
+    }
+    console.log(x + " I am not being skipped");
+}
+outerLoop:
+for (let i =0;i<10;i+=1){
+    console.log("Loop # "+ i);
+innerLoop:
+    for (let a = 0; a<10;a+=1){
+        console.log("Inner loop #" 
+        +a);
+        if(a===3){
+            break innerLoop;
         }
+        if(i===5){
+            break outerLoop;
+        }
+    }
+}
+
+
+// function looper(value){
+//     setTimeout(function(){
+//         console.log(value);
+//     },1000);
+// }
+
+
+for(let i = 0;i<10;i+=1){
+    setTimeout(()=>{
+console.log(i);
+    },i*500)
+    
 }
