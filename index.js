@@ -474,6 +474,320 @@ function Dog(years,breed){
     this.type = breed;
     setInterval(() =>{
         this.age += 1;
-console.log(this);
+// console.log(this);
     },5000)
+}
+
+//switch statement
+
+/*
+switch(expression){
+    case value1:
+        ststement to be executed when result of expression matches value1
+        break;
+        case value2:
+            ...
+            case value3:
+                ..
+                break;
+                default:
+                    break;
+
+}
+*/
+
+const myFruit = "apple";
+if (myFruit==="apple"){
+    console.log("Awesome,I love apples");
+}else if(myFruit === "orange"){
+    console.log("Oranges are cool");
+}else if(myFruit === "pear"){
+    console.log("Pears are good too");
+}else{
+    console.log("That sounds pretty");
+}
+
+switch(myFruit){
+    case "apple":
+        console.log("Great I love apples");
+     break;
+     case "banana": 
+     console.log("ok");
+     break;
+     default:
+        console.log("I did not understand");
+        break;
+}
+
+function numChecker(num){
+let value;
+switch(num){
+    case 0:
+        case 1:
+            case 2:
+                value = "Low range";
+                break;
+        case 3:
+            case 4:
+                case 5:
+                value = "Mid range";
+                break;
+        case 6:
+            case 7:
+                case 8:
+                value = "High range";
+                break;
+                default:
+                    value="Input number between 0-8";
+                    console.log(value);
+                    return;
+                }                    
+setVolume(value);
+}
+
+function setVolume(n){
+    console.log("Volume set as at " + n);
+}
+numChecker(100);
+
+
+//loops
+//quick and easy way to do something repeatedly
+/* many types of looop but all do basically the same thing:
+repeat something(i.e an action) a set number of times (even be 0).
+*/
+//while loop
+
+/*
+while (condition){
+    statement 
+}
+*/
+
+let numberOfLoops = 0;
+while(numberOfLoops<10){
+    console.log("I am looping!");
+    console.log(numberOfLoops);
+    numberOfLoops +=1;
+}
+
+let num1=0;
+let num2=0;
+while(num1<100){
+    num1+=5;
+    num2 += num1;
+
+}
+function loopDeLoop(){
+    console.log("I am looping!!!");
+}
+
+const names = ["Chris","Bob","Joe","Crystal","Amy","Billy","Ashley"];
+
+function nameLooper(arr){
+    let index = 0;
+    
+    while(index<arr.length){
+        if (arr[index] === "Amy"){
+            console.log(arr[index]);
+            break;
+        }
+        index +=1;
+}
+}
+nameLooper(names);
+
+//do...while statement
+/*
+do{
+    statement
+}while(condition)
+*/
+
+// let shouldRunOnlyOnce = true;
+// let index=0;
+
+
+// // do{
+//     console.log("Looping");
+//     index=+1;
+//     if(index === 10){
+//         shouldRunOnlyOnce= false;
+//     }
+// }while(shouldRunOnlyOnce);
+
+
+
+// let condition;
+// do{
+//     const userInput = prompt("Enter q to exit");
+//     if(userInput === 'q'){
+//         condition = false;
+//     }else{
+//         condition = true;
+//     }
+// } while (condition);
+
+// let totalMoney = 1000;
+
+// do{
+//     checkIfCanPurchase();
+// }while(totalMoney>500);
+
+// function checkIfCanPurchase(){
+//     if(totalMoney > 500){
+//         console.log("Can Purchase :)");
+//     }
+//         else{
+//             console.log("Cannnot purchase :()");
+//         }
+// }
+
+//For loops
+//Repeat until a specified conditions evaluates to false
+
+/*
+for(initial expression;condition;increment expression){
+    statement
+}
+*/
+ 
+const icecreams = ["Vanilla","chocolate","rockyroads","strawberry"]
+
+function iceCreamLooper(arr,type){
+
+for(var i=0;i<arr.length;i+=1){
+    if (arr[i] === type){
+        console.log(arr[i]+ " "+ "is at position:"+i);
+    }
+}
+}
+iceCreamLooper(icecreams,"Vanilla");
+
+// for (let i=1;i<=100;i++){
+
+//     if (i%15 === 0){
+//         console.log("Fizzbuzz");
+//     }
+//     else if(i%3 === 0){
+//         console.log("Fizz");
+//     }else if(i%5 ===0){
+
+//         console.log("Buzz");
+//     }else{
+//         console.log(i);
+//     }
+// }
+
+for (let i=1;i<=100;i++){
+
+    if (i%15 === 0){
+        continue; //just contines opp of break
+    }
+    else if(i%3 === 0){
+        console.log("Fizz");
+    }else if(i%5 ===0){
+
+        console.log("Buzz");
+    }else{
+        console.log(i);
+    }
+}
+
+let x =0;
+while(x<10){
+    x+=1;
+
+    if (x === 5){
+        console.log("I am being skipped :(");
+        continue;
+    }
+    console.log(x + " I am not being skipped");
+}
+outerLoop:
+for (let i =0;i<10;i+=1){
+    console.log("Loop # "+ i);
+innerLoop:
+    for (let a = 0; a<10;a+=1){
+        console.log("Inner loop #" 
+        +a);
+        if(a===3){
+            break innerLoop;
+        }
+        if(i===5){
+            break outerLoop;
+        }
+    }
+}
+
+
+// function looper(value){
+//     setTimeout(function(){
+//         console.log(value);
+//     },1000);
+// }
+
+
+// for(let i = 0;i<10;i+=1){
+//     setTimeout(()=>{
+// console.log(i);
+//     },i*1000)
+    
+// }
+
+
+//for... in loop 
+/*
+Loop through an object's properties in arbitrary order
+used for looping over object properties
+*/
+
+const watumiaji ={1:"Sally",2:"Kibi",3:"Faith",4:"Mutua"};
+console.log(watumiaji[1]);
+
+for (let prop in users){
+    let watumiajiWapya =console.log(watumiaji[prop]);
+    watumiajiWapya ="Redacted";
+    console.log(watumiajiWapya);
+}
+
+const drinks =["Coffee","Tea","Coke","Pepsi"];
+for(let d in drinks){
+    console.log(drinks[d]);
+}
+
+drinks.forEach(function(d){
+    console.log(d);
+});
+
+//For ...of loop
+/*
+New loop in ES6 used to loop over iterable objects(arrays,strings,maps,sets,etc)
+For looping for data- like values in an array
+*/
+
+for(const d of drinks){
+    if(d==="tea"){
+        continue;
+    }
+    console.log(d);
+}
+
+const myString ="Kibiwot";
+for(const character of myString){
+    console.log(character);
+}
+
+const originalArray = [10,15,20,25,30];
+
+for(let num of originalArray){
+    num +=10;
+    console.log(num);
+}
+
+
+const originalArrays = ["Kibi","kibi","Mariam","Wendy","Winnie","Winnie"];
+const uniqueNameSet = new Set(originalArrays);
+for (const n of uniqueNameSet){
+    console.log(n);
 }
