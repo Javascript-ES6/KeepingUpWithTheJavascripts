@@ -791,3 +791,59 @@ const uniqueNameSet = new Set(originalArrays);
 for (const n of uniqueNameSet){
     console.log(n);
 }
+
+//Document Object Model(DOM)
+
+/*
+Programming interfaace for HTML & XML documents
+Provides a structured representation of the document
+Defines  methods to acess the structure and manipulate it
+Connects web pages to scripts or programming languages
+DOM is not a programming language,it provides a model of a web page
+The DOM provides a representation of the document as a structured group of nodes and objects that have properties and methods.
+Mozilla developer Network
+*/
+//noprotect
+
+// function showAlert(){
+//     window.alert("I am loading you to the fact that the body has been loaded");
+// }
+
+const myTag = document.getElementsByTagName("P");
+console.log(myTag);
+
+// for(const p of myTag){
+//     p.innerHTML = "Renamed again!!!";
+// }
+
+const allSpans = document.getElementsByTagName("span");
+
+// for(const prop of allSpans){
+//     prop.innerHTML = "somebody";
+// }
+
+// const ID= document.getElementById("identifier");
+// console.log(ID);
+
+// ID.innerHTML ="<h1> We all </h1>";
+
+const myAppDiv= document.getElementById("app");
+const specialWords= myAppDiv.getElementsByTagName("span");
+const totalWordsChanged = document.getElementById("total");
+for (const prop of specialWords){
+    prop.innerHTML ="TEST!!!!!!!!!!";
+}
+
+totalWordsChanged.innerHTML = specialWords.length;
+
+const membersUl = document.getElementById("members");
+const allMemberNames = membersUl.getElementsByTagName("LI");
+
+// allMemberNames[3].innerHTML = "Not Bob";
+
+for (let prop of allMemberNames){
+    if (prop.innerText ==="Kim"){
+        prop.innerText = "Not Kim";
+    }
+
+}
