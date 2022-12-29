@@ -858,3 +858,37 @@ for(
     prop.style.color ="purple";
     prop.style.fontSize ="24px";
 }
+//tranversing the DOM
+console.log(dummyDivs.parentNode.parentNode);
+//childNodes
+
+// const element= document.getElementById("footer");
+// const elId = element.id;
+// const replacementId ="bottom";
+// element.id = replacementId;
+// console.log(element);
+
+// const el = document.getElementsByTagName("div");
+// const footerDiv = el[el.length -1];
+// footerDiv.id = "footer";
+
+// const purpleDiv = document.querySelector(".purple");
+// purpleDiv.style.height ="100px";
+// purpleDiv.style.width = "100px";
+
+// for(const prop of purpleDiv){
+//     prop.classList.add(
+//         "foo"
+//     )
+// }
+
+// setTimeout(() => {
+//     for(const prop of purpleDivs){
+//         prop.classList.remove("foo");
+//     }
+// },5000
+
+// )
+
+const foot = document.getElementsById("footer");
+foot.classList.add("foo");
