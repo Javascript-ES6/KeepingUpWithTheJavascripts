@@ -845,5 +845,16 @@ for (let prop of allMemberNames){
     if (prop.innerText ==="Kim"){
         prop.innerText = "Not Kim";
     }
+}
 
+const myDiv = document.querySelector("div");
+
+myDiv.style.color = "green";
+
+const dummyDivs = document.querySelectorAll(".dummy span");
+for(
+    let prop of dummyDivs
+){
+    prop.style.color ="purple";
+    prop.style.fontSize ="24px";
 }
