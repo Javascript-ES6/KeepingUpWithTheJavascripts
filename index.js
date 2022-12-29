@@ -791,3 +791,104 @@ const uniqueNameSet = new Set(originalArrays);
 for (const n of uniqueNameSet){
     console.log(n);
 }
+
+//Document Object Model(DOM)
+
+/*
+Programming interfaace for HTML & XML documents
+Provides a structured representation of the document
+Defines  methods to acess the structure and manipulate it
+Connects web pages to scripts or programming languages
+DOM is not a programming language,it provides a model of a web page
+The DOM provides a representation of the document as a structured group of nodes and objects that have properties and methods.
+Mozilla developer Network
+*/
+//noprotect
+
+// function showAlert(){
+//     window.alert("I am loading you to the fact that the body has been loaded");
+// }
+
+const myTag = document.getElementsByTagName("P");
+console.log(myTag);
+
+// for(const p of myTag){
+//     p.innerHTML = "Renamed again!!!";
+// }
+
+const allSpans = document.getElementsByTagName("span");
+
+// for(const prop of allSpans){
+//     prop.innerHTML = "somebody";
+// }
+
+// const ID= document.getElementById("identifier");
+// console.log(ID);
+
+// ID.innerHTML ="<h1> We all </h1>";
+
+const myAppDiv= document.getElementById("app");
+const specialWords= myAppDiv.getElementsByTagName("span");
+const totalWordsChanged = document.getElementById("total");
+for (const prop of specialWords){
+    prop.innerHTML ="TEST!!!!!!!!!!";
+}
+
+totalWordsChanged.innerHTML = specialWords.length;
+
+const membersUl = document.getElementById("members");
+const allMemberNames = membersUl.getElementsByTagName("LI");
+
+// allMemberNames[3].innerHTML = "Not Bob";
+
+for (let prop of allMemberNames){
+    if (prop.innerText ==="Kim"){
+        prop.innerText = "Not Kim";
+    }
+}
+
+const myDiv = document.querySelector("div");
+
+myDiv.style.color = "green";
+
+const dummyDivs = document.querySelectorAll(".dummy span");
+for(
+    let prop of dummyDivs
+){
+    prop.style.color ="purple";
+    prop.style.fontSize ="24px";
+}
+//tranversing the DOM
+console.log(dummyDivs.parentNode.parentNode);
+//childNodes
+
+// const element= document.getElementById("footer");
+// const elId = element.id;
+// const replacementId ="bottom";
+// element.id = replacementId;
+// console.log(element);
+
+// const el = document.getElementsByTagName("div");
+// const footerDiv = el[el.length -1];
+// footerDiv.id = "footer";
+
+// const purpleDiv = document.querySelector(".purple");
+// purpleDiv.style.height ="100px";
+// purpleDiv.style.width = "100px";
+
+// for(const prop of purpleDiv){
+//     prop.classList.add(
+//         "foo"
+//     )
+// }
+
+// setTimeout(() => {
+//     for(const prop of purpleDivs){
+//         prop.classList.remove("foo");
+//     }
+// },5000
+
+// )
+
+const foot = document.getElementsById("footer");
+foot.classList.add("foo");
