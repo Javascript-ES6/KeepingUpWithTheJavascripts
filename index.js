@@ -859,7 +859,7 @@ for(
     prop.style.fontSize ="24px";
 }
 //tranversing the DOM
-console.log(dummyDivs.parentNode.parentNode);
+// console.log(dummyDivs.parentNode.parentNode);
 //childNodes
 
 // const element= document.getElementById("footer");
@@ -890,5 +890,50 @@ console.log(dummyDivs.parentNode.parentNode);
 
 // )
 
-const foot = document.getElementsById("footer");
-foot.classList.add("foo");
+// const foot = document.getElementsById("footer");
+// foot.classList.add("foo");
+
+const myFaveIceCream = ["vanilla","rocky roads","strawberry","chocolate"];
+
+const creationDiv = document.getElementById("created");
+
+const newElement = document.createElement("div");
+
+// newElement.innerText="I was created by SCIENCE!!";
+
+// newElement.style.color = "red";
+// newElement.style.fontSize = "24px";
+
+creationDiv.appendChild(newElement);
+
+const newUL = document.createElement("UL");
+
+newElement.appendChild(newUL);
+
+for(let i =0;i<myFaveIceCream.length;i++){
+    const newLI = document.createElement("LI");
+    newLI.innerText = myFaveIceCream[i];
+    newUL.appendChild(newLI);
+    }
+
+newElement.appendChild(newUL);
+creationDiv.appendChild(newElement);
+
+// creationDiv.removeChild(newElement);
+
+// const unlikedIceCream =newUL.childNodes[3];
+
+// if(unlikedIceCream.innerText === "chocolate"){
+//     newUL.removeChild(unlikedIceCream);
+// }
+
+function removeIceCream(t){
+
+    for(const prop of newUL.childNodes){
+        if(prop.innerText === t){
+            newUL.removeChild(prop);
+        }
+    }
+}
+
+removeIceCream("chocolate");
