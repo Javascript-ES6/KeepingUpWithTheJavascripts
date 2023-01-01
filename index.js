@@ -1006,3 +1006,27 @@ if (green){
 }
 targetLI.classList.add("green");
 }
+
+//Preventing default
+const div2 = document.getElementById("div2");
+const myLink = div2.querySelector("a");
+
+myLink.addEventListener("click",function(event){
+    event.preventDefault();
+    alert("We are closed for christmas!");
+});
+
+const form1 = document.getElementById("form1");
+const myForm = document.getElementById("myForm");
+
+myForm.addEventListener("submit",addToDoList);
+
+function addToDoList(e){
+    e.preventDefault();
+    const myInput = document.getElementById("myInput").value;
+    const newLI = document.createElement("LI");
+    newLI.innerText = myInput;
+    itemListsUL.appendChild(newLI);
+    myForm.reset();
+}
+
