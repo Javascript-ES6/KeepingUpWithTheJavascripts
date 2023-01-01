@@ -937,3 +937,72 @@ function removeIceCream(t){
 }
 
 removeIceCream("chocolate");
+
+//Events
+/*
+--Any event that take place in the DOM
+--can be user generated or by an API
+--Many types of events
+--events contains properties and methods
+--Add event listener function takes in the event to listen for and a second arguement to be callled whenever the described event fires.
+
+-addEventListener("click",function(){
+    logic inside function
+})
+*/
+const clickDiv = document.getElementById("clicky");
+const clickableButton = clickDiv.querySelector("button");
+
+
+// clickDiv.addEventListener("click",logEvent)
+    
+
+// clickableButton.addEventListener("focus",logEvent);
+
+// clickableButton.addEventListener("focusout",logEvent);
+
+// function logEvent(e){
+//     if(e.type === "click"){
+//         console.log("Click");
+//     }
+//     if(e.type === "focus"){
+//         console.log("Focus");
+//     }
+//     else{
+//         return false;
+//     }
+// }
+
+// function logEvent(e){
+//     clickableButton.innerText = e.timeStamp;
+//     clickableButton.removeEventListener("click",logEvent);
+//     console.log(e.type);
+// }
+const bckgrnd = document.getElementById("background");
+const itemListsUL = bckgrnd.querySelector("UL");
+
+bckgrnd.addEventListener("click",switchBackground);
+itemListsUL.addEventListener("click",addGreenBackground);
+
+function switchBackground(e){
+    const hasbeenClicked= bckgrnd.contains(e.target);
+
+    if(hasbeenClicked){
+        bckgrnd.classList.add("background-color");
+    }
+    else{
+        bckgrnd.classList.remove("background-color");
+    }
+}
+function addGreenBackground(e){
+e.stopPropagation();
+const targetLI = e.target;
+const green = document.querySelector(".green");
+if (targetLI.nodeName ==="UL"){
+    return;
+}
+if (green){
+    green.classList.remove("green");
+}
+targetLI.classList.add("green");
+}
