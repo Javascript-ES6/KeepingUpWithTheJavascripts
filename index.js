@@ -989,10 +989,11 @@ function switchBackground(e){
 
     if(hasbeenClicked){
         bckgrnd.classList.add("background-color");
+        setTimeout(() =>{
+            bckgrnd.classList.remove("background-color");
+        },2000)
     }
-    else{
-        bckgrnd.classList.remove("background-color");
-    }
+  
 }
 function addGreenBackground(e){
 e.stopPropagation();
@@ -1030,3 +1031,28 @@ function addToDoList(e){
     myForm.reset();
 }
 
+document.addEventListener("keydown",function(e){
+    console.log(e.keycode);
+})
+document.addEventListener("keyup",function(e){
+    console.log(e.keycode);
+})
+
+const div3 = document.getElementById("div3");
+const para = div3.querySelector("p");
+const textarea = div3.querySelector("textarea");
+const paraText = "User is typing";
+let timer;
+
+textarea.addEventListener("keydown",addText);
+textarea.addEventListener("keyup",removeText);
+
+function addText(e){
+    para.innerText = paraText;
+}
+function removeText(e){
+    clearTimeout(timer);
+   timer = setTimeout(() => {
+       para.innerText ="";
+   },1000)
+}
