@@ -1056,3 +1056,57 @@ function removeText(e){
        para.innerText ="";
    },1000)
 }
+
+//  Template literals
+
+/*
+-String  literals allowing emedded expresisions 
+-Makes it easier to create multilinie strings and allows string interpolation
+-Enclosed in back-ticks(`String goes here`) instead of singles quotes('') or double quotes("")
+-Can contain placeholders
+*/
+
+var myFirstName = "Chris";
+var myLastName="Jones";
+var myAge ="30";
+console.log("Hello" );
+
+var myNewList = "\
+<ul>\n\
+<li>I am item 1</li>\n\
+<li>I am item 2</li>\n\
+<li>I am item 3</li>\n\
+<li>I am item 4</li>\n\
+</ul>";
+
+//ES6 below
+const myOtherNewList = 
+`<ul>
+    <li>I am es6 number 1!</li>
+    <li>I am item 2</li>
+    <li>I am item 3</li>
+    <li>I am item #4</li>
+</ul> `;
+const miDiv = document.getElementById("miDiv");
+miDiv.innerHTML = myOtherNewList;
+
+const first1 = "Sally";
+const last ="Smith";
+const age= 52;
+
+console.log(`Hello ${first1} ${last}.You are ${age} today.`);
+
+console.log(`My name is "Chris"`);
+
+const isTrue = true;
+console.log(`Is true:${isTrue===false}?`);
+console.log(`Is true:${!isTrue}?`);
+
+const dateNow = new Date();
+
+console.log(`Today is :${dateNow.toLocaleString()}`);
+console.log(`Result is :${50*100}`);
+
+const myArray =[1,2,3,4,5];
+
+myArray
