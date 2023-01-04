@@ -809,8 +809,8 @@ Mozilla developer Network
 //     window.alert("I am loading you to the fact that the body has been loaded");
 // }
 
-const myTag = document.getElementsByTagName("P");
-console.log(myTag);
+// const myTag = document.getElementsByTagName("P");
+// console.log(myTag);
 
 // for(const p of myTag){
 //     p.innerHTML = "Renamed again!!!";
@@ -1137,3 +1137,65 @@ const person ="chris";
 const personAge =21;
 
 const myTemplateLiteral = templateParser`I am ${person},aged:${personAge}`
+
+
+//Destructuring
+
+/*
+The destructuring assignment syntax is a Javascript expression that makes it possible to extract data from arrays or objects into distinc variales 
+Destructuring sytax can be used on left-hand side of assignments
+*/
+//Array destructuring
+const myArray2 = [1,2,3,4,5,6];
+
+const firstNum1 = myArray2[0];
+console.log(firstNum1);
+
+const [w,y,z]= myArray;
+
+console.log(w);
+
+const mySecondaryArray =["Jane","John Deere","Billy Bob"];
+let name1,name2,name3;
+[name1,name2,name3]= mySecondaryArray;
+
+console.log(name1,name2,name3);
+
+//swap two variables
+let aa = 100;
+let bb =250;
+let cc =500;
+
+[bb,cc]= [cc,bb]
+
+console.log(aa,bb,cc);
+
+//use with functions
+
+function returnArray(arr){
+    return["donuts","chocolates","candy","gummy bears"];
+}
+const [donust,chocolates,candy,gummybears]= returnArray();
+console.log(gummybears);
+
+//can ignore some values
+
+const otherArray =[10,20,30,50,100,15];
+const[numA,numB,,numC, ,numD] =otherArray;
+
+//can use rest pattern
+
+function sayVipi(firstArg,...restOfArgs){
+console.log(`Vipi,${firstArg}`);
+console.log(restOfArgs);
+
+}
+
+sayVipi("Chris",30,"123 Fake St",51,false);
+
+const animalsArray = ["dogs","cats","snakes","hedgehogs","mbuzi"];
+
+const [dogString,catString,...otherAnimals]=animalsArray;
+console.log(dogString);
+console.log(catString);
+console.log(otherAnimals);
