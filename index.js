@@ -1107,6 +1107,33 @@ const dateNow = new Date();
 console.log(`Today is :${dateNow.toLocaleString()}`);
 console.log(`Result is :${50*100}`);
 
-const myArray =[1,2,3,4,5];
+ const myArray1 =[1,2,3,4,5];
 
-myArray
+console.log(`${myArray1.map((num)=>`Your result is: ${num + 5}`)}`);
+
+const pizzaToppings =["Cheese","Mushrooms","Sauce","Pepperoni","Pineapple"];
+
+const myPizzaDivArticle=(
+    `<article>
+    <h1> Pizza Ingredients </h1>
+    <ul>
+${pizzaToppings.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+    </ul>
+    </article>  `
+)
+
+
+const pizzaDiv = document.getElementById("pizzaDiv");
+
+pizzaDiv.innerHTML = myPizzaDivArticle;
+
+
+function templateParser(arrayOfStrings,expresision1,expression2){
+    console.log(`"${arrayOfStrings}","${expresision1}","${expression2}"`);
+
+}
+
+const person ="chris";
+const personAge =21;
+
+const myTemplateLiteral = templateParser`I am ${person},aged:${personAge}`
