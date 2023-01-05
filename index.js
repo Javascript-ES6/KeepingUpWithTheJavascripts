@@ -816,7 +816,7 @@ Mozilla developer Network
 //     p.innerHTML = "Renamed again!!!";
 // }
 
-const allSpans = document.getElementsByTagName("span");
+// const allSpans = document.getElementsByTagName("span");
 
 // for(const prop of allSpans){
 //     prop.innerHTML = "somebody";
@@ -1199,3 +1199,113 @@ const [dogString,catString,...otherAnimals]=animalsArray;
 console.log(dogString);
 console.log(catString);
 console.log(otherAnimals);
+
+//Object destructuring
+
+const myObj ={firstName:"Chris",lastName:"Jones",age1:16,height:"6ft"};
+console.log(myObj.lastName);
+
+const {firstName,lastName,age1,height} = myObj
+//console.log(age1);
+
+let myVar1,myVar2;
+const  myObj2 = {myVar1:"a",myVar2:"b"};
+({myVar1,myVar2} = myObj2);
+
+//Assigninig new variables names
+
+const myObj3 = {a:"cool",b:"oh yeah!",c:"nice",d:"awesome!"};
+const {q:cool,b:yeah,c:nice,d:awesome}= myObj3;
+
+console.log(awesome);
+
+
+//Defaults
+const myObj5 = {a1:10,b1:20,c1:30,d1:40};
+
+const {a1,b1,c1,d1,e1=50} = myObj5;
+console.log(e1);
+
+function stateUser(obj){//using defaults
+    const {user=null,memberType}= obj;
+    if(!user){
+        console.log("Error!No user name entered >:(");
+        return
+    }else{
+        console.log(`username:${user},membership type:${memberType}`);
+    
+    }
+}
+const member1 ={user:"steve",memberType:"premium"}
+const member2 ={memberType:"premium"}
+
+stateUser(member2);
+
+function sayIfValid({prop:s,alll:q}){
+    console.log(s,q);
+}
+const myObj6 = {
+    prop:"I am valid",
+    proop:"I am not valid",
+    alll:"I am also not valid"
+}
+sayIfValid({prop:"I am valid"});
+sayIfValid({prop:"I am  not valid"});
+sayIfValid(myObj6);
+
+
+const myObj7 = {
+    title:"My address book",entries:[{
+        name:"Bob",
+        number:"5555-5-555-5555",
+        address:"13 Fake St",
+        other:{
+            cell:"028402804920",
+            email:"cojos@gmail.com",
+        }
+    },
+    {
+        name:"Jill",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"028402804920",
+            email:"jill@gmail.com",
+        }
+    },
+    {
+        name:"Kibi",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"018402804920",
+            email:"collinsboen@gmail.com",
+        }
+    },
+    {
+        name:"John",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"038402804920",
+            email:null,
+        }
+        }
+    ],
+    myPhone:"555-1111",
+}
+
+
+const {title,entries}=myObj7;
+for(const {name,address,other:{cell,email}} of entries){
+    console.log(`Name:${name},address:${address},cell:${cell} and email:${email}`);
+}
+
+const myObj8 = {
+    myProp1:"Ahhhhh!",
+    myProp2:[20,30],
+}
+
+const {myProp1,myProp2:[xx,yy]}=myObj8;
+console.log((xx,yy));
+
