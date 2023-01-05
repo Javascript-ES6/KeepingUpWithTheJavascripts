@@ -1252,3 +1252,60 @@ const myObj6 = {
 sayIfValid({prop:"I am valid"});
 sayIfValid({prop:"I am  not valid"});
 sayIfValid(myObj6);
+
+
+const myObj7 = {
+    title:"My address book",entries:[{
+        name:"Bob",
+        number:"5555-5-555-5555",
+        address:"13 Fake St",
+        other:{
+            cell:"028402804920",
+            email:"cojos@gmail.com",
+        }
+    },
+    {
+        name:"Jill",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"028402804920",
+            email:"jill@gmail.com",
+        }
+    },
+    {
+        name:"Kibi",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"018402804920",
+            email:"collinsboen@gmail.com",
+        }
+    },
+    {
+        name:"John",
+        number:"5555-5-522355-5555",
+        address:"Dedan Kimathi St",
+        other:{
+            cell:"038402804920",
+            email:null,
+        }
+        }
+    ],
+    myPhone:"555-1111",
+}
+
+
+const {title,entries}=myObj7;
+for(const {name,address,other:{cell,email}} of entries){
+    console.log(`Name:${name},address:${address},cell:${cell} and email:${email}`);
+}
+
+const myObj8 = {
+    myProp1:"Ahhhhh!",
+    myProp2:[20,30],
+}
+
+const {myProp1,myProp2:[xx,yy]}=myObj8;
+console.log((xx,yy));
+
