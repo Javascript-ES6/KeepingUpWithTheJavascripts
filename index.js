@@ -816,7 +816,7 @@ Mozilla developer Network
 //     p.innerHTML = "Renamed again!!!";
 // }
 
-const allSpans = document.getElementsByTagName("span");
+// const allSpans = document.getElementsByTagName("span");
 
 // for(const prop of allSpans){
 //     prop.innerHTML = "somebody";
@@ -1199,3 +1199,56 @@ const [dogString,catString,...otherAnimals]=animalsArray;
 console.log(dogString);
 console.log(catString);
 console.log(otherAnimals);
+
+//Object destructuring
+
+const myObj ={firstName:"Chris",lastName:"Jones",age1:16,height:"6ft"};
+console.log(myObj.lastName);
+
+const {firstName,lastName,age1,height} = myObj
+//console.log(age1);
+
+let myVar1,myVar2;
+const  myObj2 = {myVar1:"a",myVar2:"b"};
+({myVar1,myVar2} = myObj2);
+
+//Assigninig new variables names
+
+const myObj3 = {a:"cool",b:"oh yeah!",c:"nice",d:"awesome!"};
+const {q:cool,b:yeah,c:nice,d:awesome}= myObj3;
+
+console.log(awesome);
+
+
+//Defaults
+const myObj5 = {a1:10,b1:20,c1:30,d1:40};
+
+const {a1,b1,c1,d1,e1=50} = myObj5;
+console.log(e1);
+
+function stateUser(obj){//using defaults
+    const {user=null,memberType}= obj;
+    if(!user){
+        console.log("Error!No user name entered >:(");
+        return
+    }else{
+        console.log(`username:${user},membership type:${memberType}`);
+    
+    }
+}
+const member1 ={user:"steve",memberType:"premium"}
+const member2 ={memberType:"premium"}
+
+stateUser(member2);
+
+function sayIfValid({prop:s,alll:q}){
+    console.log(s,q);
+}
+const myObj6 = {
+    prop:"I am valid",
+    proop:"I am not valid",
+    alll:"I am also not valid"
+}
+sayIfValid({prop:"I am valid"});
+sayIfValid({prop:"I am  not valid"});
+sayIfValid(myObj6);
