@@ -1309,3 +1309,111 @@ const myObj8 = {
 const {myProp1,myProp2:[xx,yy]}=myObj8;
 console.log((xx,yy));
 
+//Exception Handling
+
+const myObj10 =[1,2,3,4]
+myObj10.map((obj) => console.log(obj));
+
+//Trwo your own exception
+
+/*
+-Use the throw statement to throw own exception
+-You specify the expression containinig the value to be thrown  e.g :throw expression
+-Can throw any expression
+*/
+
+
+function checkIfNUm(n){
+    if(isNaN(n)){
+        // throw "This is not a number error!"; 
+    }else{
+        console.log(n);
+    }
+}
+checkIfNUm("hi");
+checkIfNUm(4);
+
+// throw 500;
+
+function MyException(message){
+    this.message = message;
+    this.name="My exception";
+    this.toString = function(){
+        return this.name + ":"+ this.message;
+    }
+}
+
+// throw new MyException("Missing data");
+
+//try...catch
+
+// try {
+//     throw"Exception";
+// }
+// catch(e){
+//     console.log(e);
+// }
+// console.log("I want to run");
+
+let myNUm = 20;
+
+console.log( isNaN(myNUm));
+
+
+function MyString(string){
+    if (typeof string === "string"){
+        this.vaue = string;
+        this.getvalue = function() {
+            console.log("Your string: " + this.value + "."); 
+        }
+    }
+    else {
+        throw new StringExceptionError(string);
+    }
+}
+
+function StringExceptionError(value){
+    this.value =value;
+    this.message = "function requires a string";
+    this.toString = function (){
+        console.log( this.value +"."+this.message);
+    }
+}
+
+function verifyString(s){
+    let str;
+    try{
+        str = new myString(s);
+
+    }catch(e){
+        if (e instanceof StringExceptionError){
+            console.log("String exception");
+        }
+        else{
+            console.log("Other exception");
+        }
+    }
+    return str;
+}
+const a = verifyString("I am a string");
+const b = verifyString(true);
+const c =verifyString(276482784);
+const d = verifyString("wdscs");
+
+
+function finallyExample(){
+    try{
+        console.log("Hi");
+        throw'test';
+
+    }
+    catch(e){
+        console.log(e);
+      return true;
+    }
+    finally{
+        console.log("Can I run?");
+    }
+    console.log("I can't run");
+}
+console.log(finallyExample());
