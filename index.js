@@ -1417,3 +1417,88 @@ function finallyExample(){
     console.log("I can't run");
 }
 console.log(finallyExample());
+
+//Object oriented Jvascript
+
+/*
+OOP:basic idea is that you use objects to represent real world things.Objects have own properties and functions(methods) 
+Objects can obtain data and other code to represent info about what you re trying to model
+Data/methods inside the object is encapsulayed.
+In classic OOP, class is defined ,then,when an insane of that class is created,all the properties and methods are(!!!!) over to the instance.
+ Javascript is dynamic and does not provide a traditional class implementation per se.
+ Javascript inheritance is prototype based.
+ Each object has a private property called the prototype
+ The prototype can have a prototype of its own
+ Nearly all onjects in Jvascript are intances of object which sits on top of the prototype chain
+ The prorotype property's value an onject
+ Think of it as a bucket to store properties and methods
+ Prototype as a template and can have prototype properties of its own
+ "The prototype is where inherited members are defined"
+*/
+
+// function Ship(){
+//     this.floats = true;
+//     this.material = "steel";
+    
+// }
+
+// const myShip = new Ship();
+// console.log(myShip.material);
+
+// class Ship{
+//     this.floats = true;
+//     this.material = "steel";
+// }
+
+
+const name10 ={
+    name:"Billy",
+    age:16,
+    sayName:function(){
+        console.log(`My name is ${this.name}`);
+    },
+}
+//Inheritance
+const name11 = Object.create(name10);
+name11.sayName();
+name11.name = "Jane Doe";
+name11.sayName();
+
+const name12 = Object.create(name11);
+name12.sayName();
+console.log(name12.hasOwnProperty("name"));
+
+
+function Animal(name,age,breed){
+    const obj20 = {};
+    this.name = name;
+    this.age=age;
+    this.breed = breed;
+    this.saBreed = function(){
+        console.log(`My breed is :${this.breed}`);
+    }
+    
+}
+Animal,prototype.sayBreed = function(){
+    console.log((`I am a ${this.breed}`));
+}
+
+const dog1 = new Animal("Spike",3,"Labrador");
+//Dog 1 inherits from Animal which inherits from prototype object
+console.log(Animal.prototype);
+const dog2 = new Animal("Spot",2,"Golden Retriever")
+console.log(dog1.name);
+dog2.sayBreed();
+
+Object.prototype.sayHello = function(){
+    console.log("Hello there");
+}
+//Above is strongly discouraged because it overwrites the behaviour of objects.You dont want to do this.
+dog2.sayHello();
+
+const abc ={}
+abc.sayHello();
+
+const myArrr = [];
+
+myArrr.sayHello();
