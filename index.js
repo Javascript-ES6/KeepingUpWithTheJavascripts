@@ -1417,3 +1417,47 @@ function finallyExample(){
     console.log("I can't run");
 }
 console.log(finallyExample());
+
+//Object oriented Jvascript
+
+/*
+OOP:basic idea is that you use objects to represent real world things.Objects have own properties and functions(methods) 
+Objects can obtain data and other code to represent info about what you re trying to model
+Data/methods inside the object is encapsulayed.
+In classic OOP, class is defined ,then,when an insane of that class is created,all the properties and methods are(!!!!) over to the instance.
+ Javascript is dynamic and does not provide a traditional class implementation per se.
+ Javascript inheritance is prototype based.
+ Each object has a private property called the prototype
+ The prototype can have a prototype of its own
+ Nearly all onjects in Jvascript are intances of object which sits on top of the prototype chain
+ The prorotype property's value an onject
+ Think of it as a bucket to store properties and methods
+ Prototype as a template and can have prototype properties of its own
+ "The prototype is where inherited members are defined"
+*/
+
+// function Ship(){
+//     this.floats = true;
+//     this.material = "steel";
+    
+// }
+
+// const myShip = new Ship();
+// console.log(myShip.material);
+
+// class Ship{
+//     this.floats = true;
+//     this.material = "steel";
+// }
+
+
+const name10 ={
+    name:"Billy",
+    age:16,
+    sayName:function(){
+        console.log(`My name is ${this.name}`);
+    },
+}
+
+const name11 = Object.create(name10);
+name11.sayName();
