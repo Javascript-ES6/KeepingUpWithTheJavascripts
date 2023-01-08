@@ -1502,3 +1502,54 @@ abc.sayHello();
 const myArrr = [];
 
 myArrr.sayHello();
+
+
+//Object-Oriented Javascript Part 2:Classes
+// Classes in ES6 are just syntactical sugar over Javascripts' esisting prototype based inheritance
+//Simple clean syntax to create objects and take care of inhertance
+
+//Pre ES6 way:
+
+// function Person(name,age){
+//     this.name=name,
+//     this.age=age;
+
+// }
+// Person.prototype.greetings = funcion(){
+//     console.log("Greetings :D");
+// }
+// function Employee(name,age,role){
+//     Person.call(this,name,age);
+//     this.role = role;
+// }
+// Employee.prototype =Object.create(Person.prototype);
+// Employee.prototype.constructor =Emplyee;
+
+// const bill = new Employee("Bill",41,"janitor");
+// bill.greetings();
+
+//Class Mmethod
+//Classes are not hoisted
+
+// class Person{
+//     constructor(name,age){
+//         this.name = name;
+//         this.age =age;
+//     }
+// }
+
+// const bob = new Person("bob",40);
+
+const Person = class{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+
+    }
+    greetings(){
+        console.log("Classes are cool");
+    }
+}
+
+const janeDoe = new Person("Jane Doe",45)
+janeDoe.greetings();
