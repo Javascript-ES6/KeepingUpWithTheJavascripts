@@ -1565,10 +1565,103 @@ janeDoe.greetings();
 class Employee extends Person{
     constructor(name,age,position){
         super(name,age,position);
-        this.name=name;
-        this.age=age;
+       
         this.position= position;
+    }
+    testGreeting(){
+        super.greetings();
     }
 }
 const barb = new Employee("Barb",27,"developer");
 console.log(barb);
+barb.testGreeting();
+
+//Callbacks and Promises
+//A way to write asynchronous Javascript
+
+/*
+Callback function thata is apssed to another function as a parameter.
+This inner function is acalled at some point during the execution of the containig function
+I  other words,its called back at some specified point inside the containig functions body
+*/
+
+function shouldGoFirst(callBack){
+    setTimeout(()=>{
+        
+        console.log("I should always go first");
+        callBack();
+    },1000);
+}
+
+function shouldGoSecond(){
+    console.log("I should always go second");
+}
+
+shouldGoFirst(shouldGoSecond);
+
+
+function sumUpNumbers(num1,num2,cb){
+    let summedValue;
+    setTimeout(() => {
+         summedValue = num1 + num2;
+         cb(summedValue);
+    }, 1000);
+}
+function logSummedValue(val){
+    console.log(`The summed total is :${val}`);
+}
+
+sumUpNumbers(100,150,logSummedValue);
+
+//Callback function
+function sayWhenDone(){
+    console.log("Done");
+
+}
+
+//Parent function
+
+function looper(numer,cb){
+    for(var i=0;i<number; i += 1){
+        console.log(i);
+    }
+    cb();
+}
+looper(6,sayWhenDone);
+
+function anotherLogger(num1,num2){
+    const squaredNums = (num1*num1) + (num2+num2);
+    console.log(squaredAndSummedNums);
+    cb();
+}
+anotherLogger(10,50,function(){
+    console.log("HEY");
+})
+
+function numCruncher1(num,cb){
+    const newNum = num*num;
+    cb(newNum);
+
+}
+function numCruenvher2(num,cb){
+    const anotherNewNum = num/100;
+    cb(anotherNewNum);
+
+}
+function totalSum(a,b,cb){
+
+    cb(a+b);
+    
+}
+
+function crunchNumbers(a,b,cb1,cb2,cb3){
+    cb1(a,function(x){
+        cb2(b,function(y){
+            cb3(x,y,function(result){
+                console.log(result);
+            });
+        });
+    });
+}
+
+crunchNumbers(5,10,numCruncher1,numCruncher2,totalSum);
