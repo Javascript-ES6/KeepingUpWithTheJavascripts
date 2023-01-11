@@ -1553,3 +1553,22 @@ const Person = class{
 
 const janeDoe = new Person("Jane Doe",45)
 janeDoe.greetings();
+
+Person.prototype.greetings = function(){
+    console.log("Now I say something else:D");
+
+}
+janeDoe.greetings();
+
+
+//Super keyword calls functions on an objects parent class
+class Employee extends Person{
+    constructor(name,age,position){
+        super(name,age,position);
+        this.name=name;
+        this.age=age;
+        this.position= position;
+    }
+}
+const barb = new Employee("Barb",27,"developer");
+console.log(barb);
