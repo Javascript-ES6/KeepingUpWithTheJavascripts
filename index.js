@@ -1,5 +1,7 @@
 //Types
 
+const match = require("nodemon/lib/monitor/match");
+
 //Numbergit 
 
 
@@ -1643,7 +1645,7 @@ function numCruncher1(num,cb){
     cb(newNum);
 
 }
-function numCruenvher2(num,cb){
+function numCruncher2(num,cb){
     const anotherNewNum = num/100;
     cb(anotherNewNum);
 
@@ -1665,3 +1667,143 @@ function crunchNumbers(a,b,cb1,cb2,cb3){
 }
 
 crunchNumbers(5,10,numCruncher1,numCruncher2,totalSum);
+
+//Promises
+/*
+"A promise is a proxy for a value not necessarily known when the promise is created"
+Promise(similar to callbacks ) are used for async computations 
+Think  of a promise as representating as a value that may be available now,later or never
+Can associate a handler with an async action
+A promise exists in these states:
+Pending:initial state  not fulfilled
+Fuilfilled:Ok Got it
+Rejected:failed
+*/
+
+const testPromise = new Promise ((resolve,reject)=>{
+if (Math.random()>0.50){
+    reject("Promise no good!Rejected")
+}
+
+setTimeout(()=>{
+    resolve("Promise OK!")
+},1000);
+});
+
+testPromise.then((resolveMessage)=>{
+    console.log(`Looks like:${resolveMessage}`);
+}).then(()=>{
+
+    console.log("I should run after the promise is resolved");
+}).then(()=>{
+    console.log("Promises are awesome!");
+}).catch((rejectMessage)=>{
+    console.log(`Error:${rejectMessage}`);
+});
+
+
+function numAdder(n1,n2){
+    return new Promise((resolve,reject)=>{
+        reject("Not today!")
+        const adddedNums = n1 +n2;
+        setTimeout(()=>{
+            resolve(adddedNums);
+        },500);
+    });
+}
+
+function numSquarer(num){
+    return new Promise((resolve,reject)=>{
+        if (Math.random()>0.1){
+            reject("nope");
+        }
+        setTimeout(()=>{
+            resolve(num*num);
+        },800);
+    })
+}
+numAdder(10,10).then((data) => numSquarer(data))
+.then ((moreData)=> console.log(moreData))
+.catch(err =>console.log(err));
+
+
+// Promise.resolve()
+// .then(()=>console.log("Something"))
+
+function alwaysResolves(){
+    return Promise.resolve("I love resolving :d");
+}
+
+// const prom =Promise.resolve([10,20,230]);
+// prom
+// .then(nums =>nums.map(num => num*10 ))
+// .then(transformedNums => console.log(transformedNums));
+
+// const anotherProm = Promise.resolve({text:"resolved :D"});
+// anotherProm.then(data => console.log(data.text))
+
+Promise.reject()
+.then( 
+ res =>{
+    console.log(res)
+},
+err => {
+    console.log("rejected");
+}
+)
+
+
+function timeLogger(messsage,time){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(message);
+
+        },time);
+        if (typeof messsage !== "string" || typeof time !== "number"){
+            reject();
+        }
+    })
+}
+
+// timeLogger("first","100")
+// .then(message => {
+//     console.log(message)
+//     return timeLogger("secong",800);
+// }).then(message => {
+//     console.log(message);
+//     return timeLogger("third",100);
+// }).then(message => {
+//     console.log(message);
+//     return timeLogger ("fourth",300);
+// }).then(message => {
+//     console.log(message);
+// }).catch(err => console.log("incorrect input"));
+
+// Promise.resolve("Hi")
+// .then(string => {
+
+//     return new Promise((resolve,reject => {
+//         setTimeout(() => {
+//          resolve( string +"there!,");
+//         }, 1);
+//     }));
+// }).then(string => {
+//     console.log(string);
+// })
+
+// const p1=new Promise.resolve((resolve,reject) => {
+//     setTimeout(() => {
+//         resolve("A")
+        
+//     }, 2000
+// )});
+
+// const p2 = Promise.resolve("B");
+// const p3 = Promise.resolve("C");
+
+// Promise.all([p1,p2,p3])
+// .then(data => console.log(data));
+
+Promise.race([username,position])
+.then(data=>console.log(data.text))
+.catch(err =>  console.log(err))
