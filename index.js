@@ -1807,3 +1807,26 @@ function timeLogger(messsage,time){
 Promise.race([username,position])
 .then(data=>console.log(data.text))
 .catch(err =>  console.log(err))
+
+
+//Fetch API
+//returns a promise
+
+const myDiv1 = document.getElementById("planet")
+const myButton = myDiv.querySelector("button");
+
+myButton.addEventListener("click",getPlanet);
+function getPlanet(){
+
+    fetch("https://swapi.co/api/planets/1/")
+        .then(data => data.json())
+        .then(d => populatePlanet(d))
+        .catch(err => console.log(err));
+}
+
+function populatePlanet(planetObj){
+    const newParagraph = document.createElement("p");
+    newParagraph.innerText = planetObj.name;
+    myDiv1.appendChild(newParagraph);
+}
+
