@@ -1779,14 +1779,31 @@ function timeLogger(messsage,time){
 //     console.log(message);
 // }).catch(err => console.log("incorrect input"));
 
-Promise.resolve("Hi")
-.then(string => {
+// Promise.resolve("Hi")
+// .then(string => {
 
-    return new Promise((resolve,reject => {
-        setTimeout(() => {
-         resolve( string +"there!,");
-        }, 1);
-    }));
-}).then(string => {
-    console.log(string);
-})
+//     return new Promise((resolve,reject => {
+//         setTimeout(() => {
+//          resolve( string +"there!,");
+//         }, 1);
+//     }));
+// }).then(string => {
+//     console.log(string);
+// })
+
+// const p1=new Promise.resolve((resolve,reject) => {
+//     setTimeout(() => {
+//         resolve("A")
+        
+//     }, 2000
+// )});
+
+// const p2 = Promise.resolve("B");
+// const p3 = Promise.resolve("C");
+
+// Promise.all([p1,p2,p3])
+// .then(data => console.log(data));
+
+Promise.race([username,position])
+.then(data=>console.log(data.text))
+.catch(err =>  console.log(err))
