@@ -1825,8 +1825,22 @@ function getPlanet(){
 }
 
 function populatePlanet(planetObj){
-    const newParagraph = document.createElement("p");
-    newParagraph.innerText = planetObj.name;
-    myDiv1.appendChild(newParagraph);
+    // const newParagraph = document.createElement("p");
+    // newParagraph.innerText = planetObj.name;
+    // myDiv1.appendChild(newParagraph);
+
+    const {name,climate,terrain,population,orbital_period}=planetObj;
+    const planetDiv = `
+    <div>
+    <h1> ${name}</h1>
+    <p>
+    ${name} has a climate that is ${climate}.The terrain is ${terrain},with a pop of ${population}.The orbital period is ${orbital_period}
+    <p>
+    </div>
+    `
+    myDiv1.innerHTML +=planetDiv;
 }
+
+
+
 
