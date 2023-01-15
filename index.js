@@ -1859,5 +1859,16 @@ function populatePlanet(planetObj){
 
 //population === "unknown" ? pop = population:pop = parseInt(population).toLocaleString() //do something://do something else
 
+const highlighter = document.getElementById("highlighter");
+highlighter.addEventListener("click",showUnpopulated);
 
+function showUnpopulated(){
+    const allPlanetDivs = document.querySelectorAll(".planet");
+    for(const prop of allPlanetDivs){
+        console.log(prop.dataset.population);
+        if (prop.dataset.population === "unknown"){
+            prop.classList.toggle("highlight");
+        }
+    }
+}
 
