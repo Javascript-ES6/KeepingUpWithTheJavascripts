@@ -1814,8 +1814,24 @@ Promise.race([username,position])
 
 const myDiv1 = document.getElementById("planet")
 const myButton = myDiv.querySelector("button");
+const mySecondButton = document.getElementById("otherbutton");
 
 myButton.addEventListener("click",getPlanet);
+mySecondButton.addEventListener("click",getPlanets);
+
+
+function getPlanets(){
+    fetch(`https://swapi.co/api/planets/`)
+    .then(data=>data.json())
+    .then(planets => {
+        const {next}= planets;
+        //Regex
+        const newURL = next.replace(/^https:\/\//i,"https://");
+
+       return fetch(newURL)})
+        
+    .then(morePlanets => console.log(morePlanets));
+}
 function getPlanet(){
 
     fetch("https://swapi.co/api/planets/1/")
@@ -1841,6 +1857,7 @@ function populatePlanet(planetObj){
     myDiv1.innerHTML +=planetDiv;
 }
 
+//population === "unknown" ? pop = population:pop = parseInt(population).toLocaleString() //do something://do something else
 
 
 
