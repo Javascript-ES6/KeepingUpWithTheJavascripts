@@ -1992,3 +1992,41 @@ const anotherObject = {
     }
 }
 anotherObject.anotherMethod("Tim",1,false,true,[123],61);
+
+//Object property shorthands
+
+const aaa=10;
+const bbb=20;
+const ccc=30;
+const ddd={
+    a:a,
+    b:b,
+    c:c,
+}
+const e={
+    aaa,
+    bbb,
+    ccc
+}
+
+console.log(d.a);
+
+function objectBuilder(x,y,z,numTimes){
+    const allObjects=[];
+    for(let i=0;i<numTimes;i+=1){
+
+        const newObj = {
+            x,
+            y,
+            z
+        }
+        allObjects.push(newObj);
+    }
+    return {
+        x,
+        y,
+        z
+    }
+}
+
+console.log(objectBuilder(10,"bob",false));
