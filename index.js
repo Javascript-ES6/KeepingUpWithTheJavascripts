@@ -1872,3 +1872,68 @@ function showUnpopulated(){
     }
 }
 
+//More cool ES6 features
+//Spread syntax
+
+/*
+-Can be used in places wheree(e.g) functions
+expect multiple arguements,multiple elements Or multiple variables
+
+*/
+
+function spreadFunction(...multipleArgs){
+    console.log(multipleArgs);
+}
+ spreadFunction(1,20,false,"hi","hey!");
+
+const myArray = [1,2,3,4,5,6];
+const mySecondArray = [5,6,7,8,9];
+const myThirdArray=[...myArray,...mySecondArray];
+// mySecondArray.push(myArray);
+// console.log(...myArray);
+
+
+//Alternative to Function.prototype.apply
+
+function sayHola(x,y,z){
+    console.log(`Hello,${x},${y},${z}`);
+}
+
+const holaArray = ["Bob","Jane","Peter"];
+
+// sayHola.apply(null,helloArray);
+//Spread syntax way:
+
+sayHola(...holaArray);
+
+// const arr1 = [10,20,30];
+// const arr2 =[40,50,60];
+
+// arr1.push.apply(arr1,arr2);
+
+const arr1 =[60,70,80];
+const arr2 = [90,100,110];
+
+arr1.push(...arr2);
+// console.log(arr1);
+
+//concat()
+
+const myArr=["jelly beans","cake"];
+const myArr2=["donuts","chocolate"];
+const myArr3=["pie","lemonade"];
+
+// const newArr = myArr.concat(myArr2,myArr3);
+const newMyArr= [...myArr,...myArr2,...myArr3];
+// console.log(newArr);
+
+const listOfCarParts= ["gasket","tires","radiator","muffler"];
+const listOfPartsToInstert=["wipers","headlights"];
+
+function listInserter(arr1,arr2,index){
+    const firstPartOfArray = arr1.slice(0,index);
+    const secondPartOfArray=arr1.slice(index);
+    const assembledCar = firstPartOfArray.concat(arr2,secondPartOfArray);
+    console.log(assembledCar);
+}
+listInserter(listOfCarParts,listOfPartsToInstert,2);
