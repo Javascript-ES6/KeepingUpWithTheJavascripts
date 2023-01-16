@@ -2022,11 +2022,31 @@ function objectBuilder(x,y,z,numTimes){
         }
         allObjects.push(newObj);
     }
-    return {
-        x,
-        y,
-        z
-    }
+    return allObjects;
 }
 
-console.log(objectBuilder(10,"bob",false));
+const bob =objectBuilder(10,"bob",false,10);
+const {x:bobID}=bob[0];
+console.log(bobID);
+
+//Computed property keys
+//Allows use of [] which will evaluate(aka compute) as the property name
+
+let myID = 1;
+const idParam ="userID";
+const computedObj={
+    [idParam + ++myID]:"1003411",
+    [idParam + ++myID]:"12974927482478246724682",
+    ["param"+"eter"+10]:false,
+}
+function capitalizer(word){
+    const aaaa = word.charAt(0).toUpperCase();
+    const bbbb = word.slice(1);
+    return aaaa + bbbb;
+}
+
+const abj1111 = {
+    [capitalizer("hello")]:"something",
+}
+
+console.log(obj111);
