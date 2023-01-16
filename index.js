@@ -1872,3 +1872,123 @@ function showUnpopulated(){
     }
 }
 
+//More cool ES6 features
+//Spread syntax
+
+/*
+-Can be used in places wheree(e.g) functions
+expect multiple arguements,multiple elements Or multiple variables
+
+*/
+
+function spreadFunction(...multipleArgs){
+    console.log(multipleArgs);
+}
+ spreadFunction(1,20,false,"hi","hey!");
+
+const myArray = [1,2,3,4,5,6];
+const mySecondArray = [5,6,7,8,9];
+const myThirdArray=[...myArray,...mySecondArray];
+// mySecondArray.push(myArray);
+// console.log(...myArray);
+
+
+//Alternative to Function.prototype.apply
+
+function sayHola(x,y,z){
+    console.log(`Hello,${x},${y},${z}`);
+}
+
+const holaArray = ["Bob","Jane","Peter"];
+
+// sayHola.apply(null,helloArray);
+//Spread syntax way:
+
+sayHola(...holaArray);
+
+// const arr1 = [10,20,30];
+// const arr2 =[40,50,60];
+
+// arr1.push.apply(arr1,arr2);
+
+const arr1 =[60,70,80];
+const arr2 = [90,100,110];
+
+arr1.push(...arr2);
+// console.log(arr1);
+
+//concat()
+
+const myArr=["jelly beans","cake"];
+const myArr2=["donuts","chocolate"];
+const myArr3=["pie","lemonade"];
+
+// const newArr = myArr.concat(myArr2,myArr3);
+const newMyArr= [...myArr,...myArr2,...myArr3];
+// console.log(newArr);
+
+const listOfCarParts= ["gasket","tires","radiator","muffler"];
+const listOfPartsToInstert=["wipers","headlights"];
+
+function listInserter(arr1,arr2,index){
+    const firstPartOfArray = arr1.slice(0,index);
+    const secondPartOfArray=arr1.slice(index);
+    const assembledCar =[...firstPartOfArray,...arr2,...secondPartOfArray];
+    console.log(assembledCar);
+}
+listInserter(listOfCarParts,listOfPartsToInstert,1);
+
+const anotherArr=[10,20,30,30];
+const yetAnotherArr = [...anotherArr];//making a copy
+
+yetAnotherArr.push(100000);
+console.log(anotherArr,yetAnotherArr);
+
+//vs rest operator
+
+function hasManyArgs(x,y,...restOfArgs){
+    console.log(x,y);
+    for(const prop of allArgs){
+        console.log(prop+10);
+    }
+}
+
+// hasManyArgs("Hello","Vipi",1,50,64636,3555);
+
+
+//Method definitions
+//Pre ES6,in object literals,methods are defined as function expressions
+//E.g:
+const myObject ={
+    id:10,
+    sayHi:function(){
+        console.log("hi");
+    }
+}
+
+myObject.sayHi();
+
+//ES6 has method definitions for creating methods
+const myES6Obj ={
+    id:11,
+    sayHi(){
+        console.log("ES6 is cool!");\ 
+    },
+    sayBye(){
+        console.log("Bye now!");
+
+    }
+}
+
+myES6Obj.sayBye();
+
+const anotherObject = {
+    greet(arg1){
+        console.log(`Hey ${arg1}!`);
+    },
+    anotherMethod(...args){
+        this.greet(args[0]);
+        console.log(`I have ${args.length} arguments!`);
+    }
+}
+anotherObject.anotherMethod("Tim",1,false,true,[123],61);
