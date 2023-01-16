@@ -1933,7 +1933,62 @@ const listOfPartsToInstert=["wipers","headlights"];
 function listInserter(arr1,arr2,index){
     const firstPartOfArray = arr1.slice(0,index);
     const secondPartOfArray=arr1.slice(index);
-    const assembledCar = firstPartOfArray.concat(arr2,secondPartOfArray);
+    const assembledCar =[...firstPartOfArray,...arr2,...secondPartOfArray];
     console.log(assembledCar);
 }
-listInserter(listOfCarParts,listOfPartsToInstert,2);
+listInserter(listOfCarParts,listOfPartsToInstert,1);
+
+const anotherArr=[10,20,30,30];
+const yetAnotherArr = [...anotherArr];//making a copy
+
+yetAnotherArr.push(100000);
+console.log(anotherArr,yetAnotherArr);
+
+//vs rest operator
+
+function hasManyArgs(x,y,...restOfArgs){
+    console.log(x,y);
+    for(const prop of allArgs){
+        console.log(prop+10);
+    }
+}
+
+// hasManyArgs("Hello","Vipi",1,50,64636,3555);
+
+
+//Method definitions
+//Pre ES6,in object literals,methods are defined as function expressions
+//E.g:
+const myObject ={
+    id:10,
+    sayHi:function(){
+        console.log("hi");
+    }
+}
+
+myObject.sayHi();
+
+//ES6 has method definitions for creating methods
+const myES6Obj ={
+    id:11,
+    sayHi(){
+        console.log("ES6 is cool!");\ 
+    },
+    sayBye(){
+        console.log("Bye now!");
+
+    }
+}
+
+myES6Obj.sayBye();
+
+const anotherObject = {
+    greet(arg1){
+        console.log(`Hey ${arg1}!`);
+    },
+    anotherMethod(...args){
+        this.greet(args[0]);
+        console.log(`I have ${args.length} arguments!`);
+    }
+}
+anotherObject.anotherMethod("Tim",1,false,true,[123],61);
