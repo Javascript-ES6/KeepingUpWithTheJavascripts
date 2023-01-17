@@ -2041,12 +2041,24 @@ const computedObj={
 }
 function capitalizer(word){
     const aaaa = word.charAt(0).toUpperCase();
-    const bbbb = word.slice(1);
+    const bbbb = word.slice(1).toLowerCase();
     return aaaa + bbbb;
 }
 
 const abj1111 = {
     [capitalizer("hello")]:"something",
+    [capitalizer("ALLCAPS")]:"wfsdsdwDWWFWFWFW",
 }
 
-console.log(obj111);
+// console.log(obj111);
+function dataFormat(arr){
+    const formattedObj ={};
+    for (const prop of arr){
+        formattedObj["userID"+prop.x]=prop;
+
+    }
+    return formattedObj;
+}
+
+
+
