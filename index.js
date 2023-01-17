@@ -2059,6 +2059,25 @@ function dataFormat(arr){
     }
     return formattedObj;
 }
+//Map Object
+/*
 
+Used for siomple key/value pairs
+Any value can be used for eithrt a key or value(i.e object,string)
+Reasons for using Map over object:
+Object prototype has default keys that might conflict with own keys
+Keys of map can be anything,whereas with objecta have to be string or symbol
+Can eaasily get the size of Map
+
+*/
+
+const myMap = new Map();
+const firstKey = "key";
+const firstVal = "first value";
+myMap.set(firstKey,firstVal);
+console.log(myMap.get(firstKey));
+myMap.set(   "amotherKey","anotherValue" );
+myMap.set(   "amotherKeyTwo","anotherValueagain" );
+console.log(myMap.size);
 
 
