@@ -2074,10 +2074,29 @@ Can eaasily get the size of Map
 const myMap = new Map();
 const firstKey = "key";
 const firstVal = "first value";
+const secondKey ={};
+const thirdKey = function(){};
+
 myMap.set(firstKey,firstVal);
 console.log(myMap.get(firstKey));
-myMap.set(   "amotherKey","anotherValue" );
-myMap.set(   "amotherKeyTwo","anotherValueagain" );
-console.log(myMap.size);
+myMap.set(   firstKey,"anotherValue" );
+myMap.set( secondKey,"anotherValueagain" );
+myMap.set( thirdKey,"anotherValueagain" );
+myMap.forEach((val)=>console.log(val));
 
 
+
+// console.log(myMap.size);
+
+// console.log(myMap);
+
+// console.log(myMap.has(firstKey));
+// console.log(myMap.has("sgdchjbsjcbjs");
+
+
+//Iterating
+//Keys(),values,entries()
+
+for(const[key,value] of myMap.entries()){
+    console.log(`${key} =>${value}`);
+}
