@@ -2097,6 +2097,61 @@ myMap.forEach((val)=>console.log(val));
 //Iterating
 //Keys(),values,entries()
 
-for(const[key,value] of myMap.entries()){
-    console.log(`${key} =>${value}`);
+// for(const key  of myMap.keys()){
+//     console.log(key);
+// }
+
+const myMapData = [["keyA","value one"],["keyB","value two"]]
+const anotherMap=new Map([
+    ["entry1","val1"],
+    ["entry2","val2"],
+
+]);
+
+//Set objects
+/*
+-Lets you store unique values of any type
+-Each element is unique
+*/
+
+const mySet = new Set();
+const obj123 ={a:1,b:2}
+const anotherObj ={x:1,y:2,z:3}
+const myStrings ="Hello there :D"
+console.log(mySet);
+const aBool = true;
+mySet.add(obj123);
+mySet.add(anotherObj);
+mySet.add(myStrings);
+console.log(mySet);
+console.log(mySet.size);
+
+mySet.delete(obj123);
+console.log(mySet.has(myString));
+
+// mySet.forEach((s)=>{
+//     if(typeof s === "object");
+//     console.log("we got an object");
+// }else{ 
+//     console.log(s);
+// }
+// });
+
+for (const val of mySet.values()){
+    console.log(val);
 }
+
+//Covert set to array and vice versa
+const arrFromSet =Array.from(mySet);
+console.log(arrFromSet);
+
+const arrFromString =Array.from("hello there");
+console.log(arrFromString);
+
+const myArr123 =[1,2,3,4,5,6,7,8];
+const anotherSet =new Set(myArr123);
+console.log(anotherSet);
+
+const yetAnotherSet = new set(["a","b","c","d","e"])
+const anotherArrFromSet =[...yetAnotherSet];
+console.log(anotherArrFromSet);
